@@ -17,7 +17,7 @@
 ### Вопрос 2: 
 C# библиотека для вычисления площадей фигур:
 
-[FigureLibrary](https://github.com/orlfi/Testing/FigureLibrary)
+[FigureLibrary](https://github.com/orlfi/Testing/tree/main/FigureLibrary)
 
 Основные функции проекта:
 1. Рассчитывает площадь круга и треугольника.
@@ -36,11 +36,11 @@ C# библиотека для вычисления площадей фигур:
     - `categories-products` - связь многие-ко-многим продуктов и категорий
 3. Написан запрос для выбора всех пар «Имя продукта – Имя категории». Если у продукта нет категорий, то его имя все равно выводится.
 
-[SQL cкрипт](https://github.com/orlfi/Testing/SQL/products_and_categories.sql),
+[SQL cкрипт](https://github.com/orlfi/Testing/blob/main/SQL/products_and_categories.sql)
 
 ![SQL result](SQL/result.png)
 
 ---
 
 ### Вопрос 4:
-Готов выйти на фуллтайм удаленно 
+Готов выйти на фуллтайм удаленно.
