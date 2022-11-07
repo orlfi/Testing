@@ -18,7 +18,8 @@ public class Triangle : Figure
 
     public Triangle(double a, double b, double c)
     {
-        if (a <= 0 || b <= 0 || c <= 0)
+        if (a <= 0 || b <= 0 || c <= 0 ||
+            a + b < c || a + c < b || b + c < a)
             throw new ArgumentOutOfRangeException();
 
         (A, B, C) = (a, b, c);
@@ -34,5 +35,26 @@ public class Triangle : Figure
     }
 
     private bool CheckPythagoreanTheorem(double hypotenuse, double cathet1, double cathet2)
-        => Math.Pow(hypotenuse, 2) == Math.Pow(cathet1, 2) + Math.Pow(cathet2, 2);
+        => HasMinimalDifference(Math.Pow(hypotenuse, 2), Math.Pow(cathet1, 2) + Math.Pow(cathet2, 2),10);
+
+    public static bool HasMinimalDifference(double value1, double value2, int units)
+    {
+        long lValue1 = BitConverter.DoubleToInt64Bits(value1);
+        long lValue2 = BitConverter.DoubleToInt64Bits(value2);
+
+        if ((lValue1 >> 63) != (lValue2 >> 63))
+        {
+            if (value1 == value2)
+                return true;
+
+            return false;
+        }
+
+        long diff = Math.Abs(lValue1 - lValue2);
+
+        if (diff <= (long)units)
+            return true;
+
+        return false;
+    }
 }

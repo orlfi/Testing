@@ -9,7 +9,12 @@ public class Circle : Figure
     public double Radius { get; }
 
     public Circle(double radius)
-        => Radius = radius;
+    { 
+        if (radius <= 0)
+            throw new ArgumentOutOfRangeException(nameof(radius), "Радиус должен быть больше 0");
+
+        Radius = radius; 
+    }
 
     /// <summary> Вычисляет площадь круга Pi*R*R</summary>
     /// <returns> Площадь круга</returns>
