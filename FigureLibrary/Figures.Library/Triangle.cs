@@ -3,6 +3,7 @@
 /// <summary> Определяет фигуру треугольника. </summary>
 public class Triangle : Figure
 {
+    private const int accuracy = 10;
     /// <summary> Сторона A. </summary>
     public double A { get; }
 
@@ -35,9 +36,9 @@ public class Triangle : Figure
     }
 
     private bool CheckPythagoreanTheorem(double hypotenuse, double cathet1, double cathet2)
-        => HasMinimalDifference(Math.Pow(hypotenuse, 2), Math.Pow(cathet1, 2) + Math.Pow(cathet2, 2),10);
+        => HasMinimalDifference(Math.Pow(hypotenuse, 2), Math.Pow(cathet1, 2) + Math.Pow(cathet2, 2), accuracy);
 
-    public static bool HasMinimalDifference(double value1, double value2, int units)
+    public static bool HasMinimalDifference(double value1, double value2, int accuracy)
     {
         long lValue1 = BitConverter.DoubleToInt64Bits(value1);
         long lValue2 = BitConverter.DoubleToInt64Bits(value2);
@@ -52,7 +53,7 @@ public class Triangle : Figure
 
         long diff = Math.Abs(lValue1 - lValue2);
 
-        if (diff <= (long)units)
+        if (diff <= accuracy)
             return true;
 
         return false;
